@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{modifier}" method="post" th:object="${stagiaire}">
+id: <input type="hidden" th:field="*{id}" /><br/>
+nom :<input type="text" th:field="*{nom}" /><br/>
+prenom :<input type="text" th:field="*{prenom}" /><br/>
+Specialite :<input type="text" th:field="*{specialite}" /><br/>
+<button type="submit">SAVE</button><br/>
+</form>
+</body>
+</html>

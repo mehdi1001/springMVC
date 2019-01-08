@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8" />
+<link href="/webjars/bootstrap/4.1.2/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css"></link>
+<title>:: GTS :: Panneau de configuration</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<div class="row">
+			<h2>Utilisateur</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>nom</th>
+						<th>prenom</th>
+						<th>specialite</th>
+						<th>modifier</th>
+						<th>supprimer</th>
+					</tr>
+
+				</thead>
+				<tr th:each="stage:${stagiaire}">
+					<td th:text="${stage.id}">this is</td>
+					<td th:text="${stage.nom}">this is</td>
+					<td th:text="${stage.prenom}">that it</td>
+					<td th:text="${stage.specialite}">that it</td>
+					<td><a th:href="@{modifierform(id=${stage.id})}">Modifier</a></td>
+					<td><a th:href="@{supprimer(id=${stage.id})}">Supprimer</a></td>
+				</tr>
+				<tr>
+					<td colspan="4"><a th:href="@{/etudiants/add}"
+						class="btn btn-success" role="button">Ajouter</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+	<script src="/webjars/jquery/3.2.1/jquery.js"></script>
+	<script src="/webjars/bootstrap/4.1.2/js/bootstrap.js"></script>
+</body>
+</html>

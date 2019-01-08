@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>test</title>
+</head>
+<body>
+<table>
+<thead>
+<tr>
+<th>id</th><th>nom</th><th>prenom</th><th>specialite</th><th>modifier</th><th>supprimer</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="stage:${stagiaire}">
+<td th:text="${stage.id}">this is </td>
+<td th:text="${stage.nom}">this is </td>
+<td th:text="${stage.prenom}">that it </td>
+<td th:text="${stage.specialite}">that it</td>
+<td><a th:href="@{modifierform(id=${stage.id})}">Modifier</a></td>
+<td><a th:href="@{supprimer(id=${stage.id})}">Supprimer</a></td>
+</tr>
+</tbody>
+<a th:href="@{form}">Ajouter</a>
+</table>
+</body>
+</html>
+
+
+
+<!-- 
+ -->

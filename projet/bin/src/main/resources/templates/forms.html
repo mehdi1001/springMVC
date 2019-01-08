@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{save}" method="post" th:object="${stagiaire}">
+
+nom :<input type="text" th:field="*{nom}" /><br/>          
+prenom :<input type="text" th:field="*{prenom}" /><br/>
+Specialite :<input type="text" th:field="*{specialite}" /><br/>
+
+
+<select  th:field="*{id}">
+    <option value="0">CHOISIR STAGIAIRE</option>
+    <option th:each="stage : ${ops}" th:value="${stage.id}" th:text="${stage.nom}"></option>
+    </select>
+
+<button type="submit">SAVE</button><br/>
+</form>
+</body>
+</html>

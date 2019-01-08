@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{save}" method="post" th:object="${offre}">
+
+description        :<input type="text" th:field="*{description}" /><br/>          
+date fin offre     :<input type="date" th:field="*{dateFinOffre}" /><br/>
+
+
+
+
+<button type="submit">SAVE</button><br/>
+</form>
+</body>
+</html>
