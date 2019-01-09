@@ -165,7 +165,7 @@
 									<td class=" " th:text="${stage.sexe}"></td>
 									<td class=" " th:text="${stage.niveauEtude}"></td>
 									<td class=" " th:text="${stage.categorie}"></td>
-									<td class=" " th:text="${stage.cv}"></td>
+									<td><a  th:href="@{getfile(file=${stage.cv})}" th:text="${stage.cv}"></a></td>
 									
 									<td><a class="btn btn-primary" th:href="@{modifierform(id=${stage.id})}">Modifier</a>
 									<a class="btn btn-danger" th:href="@{supprimer(id=${stage.id})}">Supprimer</a>

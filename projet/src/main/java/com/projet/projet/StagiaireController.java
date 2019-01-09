@@ -54,7 +54,7 @@ public class StagiaireController {
 
 		
 		System.out.println("this is msg"+file.getOriginalFilename());
-		st.setCv(st.getNom()+" "+st.getPrenom()+".pdf");
+		st.setCv(st.getNom()+"_"+st.getPrenom()+".pdf");
 		file.transferTo(new File(cv_candidat+st.getNom()+" "+st.getPrenom()+".pdf"));
 		stagiaireRepository.save(st);
 		

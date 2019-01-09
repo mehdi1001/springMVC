@@ -1,16 +1,22 @@
 package com.projet.projet;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +26,7 @@ import com.projet.projet.dao.CategorieRepository;
 import com.projet.projet.entities.Candidat;
 import com.projet.projet.entities.Categorie;
 import com.projet.projet.entities.Stagiaire;
+
 
 @Controller
 @RequestMapping(value = "/candidat")
@@ -74,8 +81,8 @@ public class CandidatController {
 	public String save(Candidat st,@RequestParam(name="upload1") MultipartFile file) throws IllegalStateException, IOException  {
 		
 		System.out.println("this is msg"+file.getOriginalFilename());
-		st.setCv(st.getNom()+" "+st.getPrenom()+".pdf");
-		file.transferTo(new File(cv_candidat+st.getNom()+" "+st.getPrenom()+".pdf"));
+		st.setCv(st.getNom()+"_"+st.getPrenom()+".pdf");
+		file.transferTo(new File(cv_candidat+st.getNom()+"_"+st.getPrenom()+".pdf"));
 		st.setCategorie("recue");
 		candidatRepository.save(st);
 
@@ -128,6 +135,14 @@ public class CandidatController {
 		
 	}
 
+	@GetMapping(value="getfile",produces = MediaType.APPLICATION_PDF_VALUE)
+	@ResponseBody 
+	public  byte[] getFile(String file) throws IOException {
+       File cva = new File(cv_candidat+file);
+       return org.apache.commons.io.IOUtils.toByteArray(new FileInputStream(cva));
+     
+       
+    }
 	/*
 	 * @RequestMapping(value="/index") public ModelAndView getAll(){
 	 * 
