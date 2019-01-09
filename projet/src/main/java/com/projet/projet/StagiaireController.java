@@ -1,12 +1,17 @@
 package com.projet.projet;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.projet.projet.dao.StagiaireRepository;
@@ -18,7 +23,8 @@ public class StagiaireController {
 	
 	@Autowired
 	private StagiaireRepository stagiaireRepository;
-	
+	@Value("${place.cv}")
+	private String cv_candidat;
 	@RequestMapping(value="/this")
 	public String index4(Model model){
 		 List<Stagiaire> list=stagiaireRepository.findAll();
@@ -43,10 +49,14 @@ public class StagiaireController {
 		return "forms";
 	}
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String save(Stagiaire st) {
+	public String save(Stagiaire st,@RequestParam(name="picture") MultipartFile file) throws IllegalStateException, IOException  {
+		
+		System.out.println(file.getOriginalFilename());
+		st.setCv(st.getNom()+" "+st.getPrenom()+"CV.pdf");
+		file.transferTo(new File(cv_candidat+st.getNom()+" "+st.getPrenom()+".pdf"));
 		stagiaireRepository.save(st);
 		
-		return "redirect:index";
+		return "redirect:form";
 	}
 	@RequestMapping(value="supprimer")
 	public String supprimer(long id) {
