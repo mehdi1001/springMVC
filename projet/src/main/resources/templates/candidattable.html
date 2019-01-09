@@ -142,6 +142,7 @@
 									<th class="column-title">Sexe</th>
 									<th class="column-title">Niveau Etude</th>
 									<th class="column-title">Categorie</th>
+									<th class="column-title">CV</th>
 									<th class="column-title no-link last" col="3"><span class="nobr">Action</span>
 									</th>
 									<th class="bulk-actions" colspan="7"><a class="antoo"
@@ -164,6 +165,8 @@
 									<td class=" " th:text="${stage.sexe}"></td>
 									<td class=" " th:text="${stage.niveauEtude}"></td>
 									<td class=" " th:text="${stage.categorie}"></td>
+									<td class=" " th:text="${stage.cv}"></td>
+									
 									<td><a class="btn btn-primary" th:href="@{modifierform(id=${stage.id})}">Modifier</a>
 									<a class="btn btn-danger" th:href="@{supprimer(id=${stage.id})}">Supprimer</a>
 									<a class="btn btn-info" th:href="@{modifierCat(id=${stage.id},cat=${stage.categorie})}">Modifier categorie</a></td>

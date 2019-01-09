@@ -1,26 +1,87 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+	<title>Ajout recruteur</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" th:href="@{/form_images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/form_vendor/bootstrap/css/bootstrap.min.css}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/form_vendor/animate/animate.css}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/form_vendor/css-hamburgers/hamburgers.min.css}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/form_vendor/select2/select2.min.css}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/form_css/util.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/form_css/main.css}"/>
+<!--===============================================================================================-->
 </head>
 <body>
-<form th:action="@{save}" method="post" th:object="${recruteur}">
 
-nom        :<input type="text" th:field="*{nom}" /><br/>          
-prenom     :<input type="text" th:field="*{prenom}" /><br/>
-email      : <input type="text" th:field="*{email}" /><br/>
-password   :<input type="text" th:field="*{password}" /><br/>
-Code Recruteur :<input type="text" th:field="*{codeRecruteur}" /><br/>
+	<div class="bg-contact2" style="background-image: url('form_images/bg-01.jpg');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+				<form class="contact2-form validate-form" th:action="@{save}" method="post" th:object="${recruteur}">
+					<span class="contact2-form-title">
+						Ajout recruteur
+					</span>
+                      name
+					<div class="wrap-input2 validate-input" data-validate="Name is required">
+						<input class="input2" type="text" th:field="*{nom}" />
+						<span  data-placeholder="NAME"></span>
+					</div>
+                     Prenom
+					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input2" type="text" th:field="*{prenom}" />
+						
+					</div>
+					Email
+                    <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input2" type="text" th:field="*{email}" />
+					</div>
+					Password
+					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input2" type="text" th:field="*{password}"/>
+					</div>
+					
+					Code recruteur
+					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input2" type="text" th:field="*{codeRecruteur}"/>
+					</div>
+					
+
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn">
+								Validate
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
 
-<select  th:field="*{id}">
-    <option value="0">CHOISIR STAGIAIRE</option>
-    <option th:each="stage : ${ops}" th:value="${stage.id}" th:text="${stage.nom}"></option>
-    </select>
 
-<button type="submit">SAVE</button><br/>
-</form>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/select2/select2.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/js/main.js}"></script>
+
+	
+
 </body>
 </html>

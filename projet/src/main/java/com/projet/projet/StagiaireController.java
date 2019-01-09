@@ -49,10 +49,10 @@ public class StagiaireController {
 		return "forms";
 	}
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String save(Stagiaire st,@RequestParam(name="cv") MultipartFile file) throws IllegalStateException, IOException  {
+	public String save(Stagiaire st,@RequestParam(name="upload") MultipartFile file) throws IllegalStateException, IOException  {
 		
-		System.out.println(file.getOriginalFilename());
-		st.setCv(st.getNom()+" "+st.getPrenom()+"CV.pdf");
+		System.out.println("this is msg"+file.getOriginalFilename());
+		st.setCv(st.getNom()+" "+st.getPrenom()+".pdf");
 		file.transferTo(new File(cv_candidat+st.getNom()+" "+st.getPrenom()+".pdf"));
 		stagiaireRepository.save(st);
 		

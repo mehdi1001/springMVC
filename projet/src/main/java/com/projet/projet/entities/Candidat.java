@@ -19,20 +19,17 @@ public class Candidat implements Serializable {
 	private char sexe;
 	private String niveauEtude;
 	private String categorie;
+	private String cv;
 	
 	
+//CONSTRUCTORS	
 	public Candidat() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	
-
-
 	public Candidat(Long id, String nom, String prenom, String email, String password, String specialite, char sexe,
-			String niveauEtude, String categorie) {
+			String niveauEtude, String categorie, String cv) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -43,11 +40,10 @@ public class Candidat implements Serializable {
 		this.sexe = sexe;
 		this.niveauEtude = niveauEtude;
 		this.categorie = categorie;
+		this.cv = cv;
 	}
 
-
-
-
+//GETTERS AND SETTERS
 
 
 	public Long getId() {
@@ -141,5 +137,15 @@ public class Candidat implements Serializable {
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
+
+	public String getCv() {
+		return cv;
+	}
+
+	public void setCv(String cv) {
+		this.cv = cv;
+	}
+	
+	
 	
 }

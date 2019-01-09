@@ -1,12 +1,17 @@
 package com.projet.projet;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.projet.projet.dao.CandidatDAO;
@@ -24,7 +29,8 @@ public class CandidatController {
 	private CandidatRepository candidatRepository;
 	@Autowired 
 	private CategorieRepository categorieRepository;
-	
+	@Value("${place.cv}")
+	private String cv_candidat;
 	
 
 	@RequestMapping(value = "/this")
@@ -45,7 +51,7 @@ public class CandidatController {
 		///////////////////////////// list.forEach(e->System.out.println(e.getNom()));
 		model.addAttribute("candidat", list);
 
-		return "index_candidat";
+		return "candidattable";
 
 	}
 
@@ -65,7 +71,11 @@ public class CandidatController {
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Candidat st) {
+	public String save(Candidat st,@RequestParam(name="upload1") MultipartFile file) throws IllegalStateException, IOException  {
+		
+		System.out.println("this is msg"+file.getOriginalFilename());
+		st.setCv(st.getNom()+" "+st.getPrenom()+".pdf");
+		file.transferTo(new File(cv_candidat+st.getNom()+" "+st.getPrenom()+".pdf"));
 		st.setCategorie("recue");
 		candidatRepository.save(st);
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Contact V2</title>
+	<title>Ajout candidat</title>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <!--===============================================================================================-->
@@ -26,9 +26,9 @@
 	<div class="bg-contact2" style="background-image: url('form_images/bg-01.jpg');">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
-				<form class="contact2-form validate-form" th:action="@{save}" method="post" th:object="${candidat}">
+				<form class="contact2-form validate-form" th:action="@{save}" method="post" th:object="${candidat}" enctype="multipart/form-data">
 					<span class="contact2-form-title">
-						Contact Us
+						Ajout candidat
 					</span>
                       name
 					<div class="wrap-input2 validate-input" data-validate="Name is required">
@@ -63,7 +63,11 @@
 						<input class="input2" type="text" th:field="*{niveauEtude}"/>
 						
 					</div>
-					
+					CV
+					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input2" type="file" th:name="upload1" />
+						
+					</div>
 
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
