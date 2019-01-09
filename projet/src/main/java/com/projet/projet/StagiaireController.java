@@ -49,11 +49,9 @@ public class StagiaireController {
 		return "forms";
 	}
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-<<<<<<< HEAD
+
 	public String save(Stagiaire st,@RequestParam(name="upload") MultipartFile file) throws IllegalStateException, IOException  {
-=======
-	public String save(Stagiaire st,@RequestParam(name="picture") MultipartFile file) throws IllegalStateException, IOException  {
->>>>>>> branch 'master' of https://github.com/mehdi1001/springMVC.git
+
 		
 		System.out.println("this is msg"+file.getOriginalFilename());
 		st.setCv(st.getNom()+" "+st.getPrenom()+".pdf");
