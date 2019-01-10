@@ -103,9 +103,13 @@ public class CandidatController {
 		model.addAttribute("candidat", candidat);
 		return "modifier_candidat";
 	}
-
+	
 	@RequestMapping(value = "/modifier", method = RequestMethod.POST)
-	public String modifier(Candidat st) {
+	public String modifier(Candidat st,@RequestParam(name="upload1") MultipartFile file) throws IllegalStateException, IOException  {
+		System.out.println("this is msg"+file.getOriginalFilename());
+		st.setCv(st.getNom()+"_"+st.getPrenom()+".pdf");
+		file.transferTo(new File(cv_candidat+st.getNom()+"_"+st.getPrenom()+".pdf"));
+		
 		candidatRepository.save(st);
 
 		return "redirect:this";
@@ -143,6 +147,12 @@ public class CandidatController {
      
        
     }
+	@RequestMapping(value="index_candidat")
+	public String page()
+	{
+		return "index_candidat";
+		
+	}
 	/*
 	 * @RequestMapping(value="/index") public ModelAndView getAll(){
 	 * 

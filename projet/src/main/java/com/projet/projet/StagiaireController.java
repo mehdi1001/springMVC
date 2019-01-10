@@ -79,7 +79,11 @@ public class StagiaireController {
 		
 		return "redirect:index";
 	}
-	
+	@RequestMapping(value="/login")
+	public String log() {
+		
+		return "login";
+	}
 /*	@RequestMapping(value="/index")
    public ModelAndView getAll(){
 	   

@@ -59,7 +59,8 @@
 					
 						<input class="input2" type="hidden" th:field="*{niveauEtude}"/>
 						
-					
+						
+					<input class="input2" type="hidden" th:field="*{cv}"/>
 					<select  th:field="*{categorie}">
 					<option th:each="cat : ${categorie}" th:value="${cat.type}"
 						th:text="${cat.type}"></option>

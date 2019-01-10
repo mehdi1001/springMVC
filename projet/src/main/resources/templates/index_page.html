@@ -1,11 +1,11 @@
 	<!DOCTYPE html>
-	<html>
+	<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png"/>
+		<link rel="shortcut icon" th:href="@{/index_img/fav.png}"/>
 		<!-- Author Meta -->
 		<meta name="author" content="codepixer"/>
 		<!-- Meta Description -->
@@ -17,44 +17,44 @@
 		<!-- Site Title -->
 		<title>Job Listing</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"/> 
+		<link th:href="@{/index_https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700}" rel="stylesheet"/> 
 			<!--
 			CSS
 			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css"/>
-			<link rel="stylesheet" href="css/font-awesome.min.css"/>
-			<link rel="stylesheet" href="css/bootstrap.css"/>
-			<link rel="stylesheet" href="css/magnific-popup.css"/>
-			<link rel="stylesheet" href="css/nice-select.css"/>					
-			<link rel="stylesheet" href="css/animate.min.css"/>
-			<link rel="stylesheet" href="css/owl.carousel.css"/>
-			<link rel="stylesheet" href="css/main.css"/>
+			<link rel="stylesheet" th:href="@{/index_css/linearicons.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/font-awesome.min.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/bootstrap.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/magnific-popup.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/nice-select.css}"/>					
+			<link rel="stylesheet" th:href="@{/index_css/animate.min.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/owl.carousel.css}"/>
+			<link rel="stylesheet" th:href="@{/index_css/main.css}"/>
 		</head>
 		<body>
 
-			  <header id="header" id="home">
+			  <header id="header" id1="home">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				        <a th:href="@{/index_index.html}"><img th:src="@{/index_img/logo.png}" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.html">Home</a></li>
-				          <li><a href="about-us.html">About Us</a></li>
-				          <li><a href="category.html">Category</a></li>
-				          <li><a href="price.html">Price</a></li>
-				          <li><a href="blog-home.html">Blog</a></li>
-				          <li><a href="contact.html">Contact</a></li>
-				          <li class="menu-has-children"><a href="">Pages</a>
+				          <li class="menu-active"><a >Home</a></li>
+				          <li><a th:href="@{/index_about-us.html}">About Us</a></li>
+				          <li><a th:href="@{/index_category.html}">Category</a></li>
+				          <li><a th:href="@{/index_price.html}">Price</a></li>
+				          <li><a th:href="@{/index_blog-home.html}">Blog</a></li>
+				          <li><a th:href="@{/index_contact.html}">Contact</a></li>
+				          <li class="menu-has-children"><a >Pages</a>
 				            <ul>
-								<li><a href="elements.html">elements</a></li>
-								<li><a href="search.html">search</a></li>
-								<li><a href="single.html">single</a></li>
+								<li><a th:href="@{/index_elements.html}">elements</a></li>
+								<li><a th:href="@{/index_search.html}">search</a></li>
+								<li><a th:href="@{/index_single.html}">single</a></li>
 				            </ul>
 				          </li>
-				          <li><a class="ticker-btn" href="#">Signup</a></li>
-				          <li><a class="ticker-btn" href="#">Login</a></li>				          				          
+				          <li><a class="ticker-btn" th:href="@{/login}">Login</a></li>
+				        		          				          
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -69,7 +69,7 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-center">
 						<div class="banner-content col-lg-12">
 							<h1 class="text-white">
-								<span>1500+</span> Jobs posted last week				
+								<span>15+</span> Jobs available today			
 							</h1>	
 							
 							<p class="text-white"> <span>Search by tags:</span> Tecnology, Business, Consulting, IT Company, Design, Development</p>
@@ -81,21 +81,21 @@
 
 			
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script th:src="@{/index_js/vendor/jquery-2.2.4.min.js}"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script th:src="@{/index_js/vendor/bootstrap.min.js}"></script>			
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>			
-			<script src="js/jquery.sticky.js"></script>
-			<script src="js/jquery.nice-select.min.js"></script>			
-			<script src="js/parallax.min.js"></script>		
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+  			<script th:src="@{/index_js/easing.min.js}"></script>			
+			<script th:src="@{/index_js/hoverIntent.js}"></script>
+			<script th:src="@{/index_js/superfish.min.js}"></script>	
+			<script th:src="@{/index_js/jquery.ajaxchimp.min.js}"></script>
+			<script th:src="@{/index_js/jquery.magnific-popup.min.js}"></script>	
+			<script th:src="@{/index_js/owl.carousel.min.js}"></script>			
+			<script th:src="@{/index_js/jquery.sticky.js}"></script>
+			<script th:src="@{/index_js/jquery.nice-select.min.js}"></script>			
+			<script th:src="@{/index_js/parallax.min.js}"></script>		
+			<script th:src="@{/index_js/mail-script.js}"></script>	
+			<script th:src="@{/index_js/main.js}"></script>	
 		</body>
 	</html>
 
