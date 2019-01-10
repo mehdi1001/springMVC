@@ -27,7 +27,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"> <i class="fa fa-paw" />
+						<a href="#" class="site_title"> <i class="fa fa-paw" />
 							<span>Gestion recrutement</span>
 						</a>
 					</div>
@@ -36,8 +36,7 @@
 					<div class="profile clearfix">
 						
 						<div class="profile_info">
-							<span>Welcome,</span>
-							<h2>John Doe</h2>
+							<!-- welcome -->
 						</div>
 					</div>
 					<!-- /menu profile quick info -->
@@ -52,9 +51,7 @@
 										class="fa fa-chevron-down" />
 								</a>
 									<ul class="nav child_menu">
-										<li><a href="index.html">Dashboard</a></li>
-										<li><a href="index2.html">Dashboard2</a></li>
-										<li><a href="index3.html">Dashboard3</a></li>
+										<li><a th:href="@{this}">Recruteur</a></li>
 									</ul></li>
 								
 								
@@ -119,7 +116,7 @@
 			<!-- /top navigation -->
 			<!-- page content -->
 			<div class="right_col" role="main">
-			<a th:href="@{form}">Ajouter</a>
+			<a th:href="@{form}" class="btn btn-success">Ajouter</a>
 				<div class="x_content">
 					<div class="table-responsive">
 						<table class="table table-striped jambo_table bulk_action">

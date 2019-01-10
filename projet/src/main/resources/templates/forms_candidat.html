@@ -55,13 +55,25 @@
 					</div>
 					Sexe
 					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input2" type="text" th:field="*{sexe}"/>
+						
+						<select  class="input2" th:field="*{sexe}">
+    						<option value="0"></option>
+    						<option value="F">F</option>
+    						<option value="H">H</option>
+    					</select>
 					</div>
 					
 				    Niveau d'etude
 					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input2" type="text" th:field="*{niveauEtude}"/>
 						
+						<select  class="input2" th:field="*{niveauEtude}">
+    						<option value="0"></option>
+    						<option value="DEUG">DEUG</option>
+    						<option value="License">License</option>
+    						<option value="Master">Master</option>
+    						<option value="Master et plus">Master et plus</option>
+    						
+    					</select>
 					</div>
 					CV
 					<div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
