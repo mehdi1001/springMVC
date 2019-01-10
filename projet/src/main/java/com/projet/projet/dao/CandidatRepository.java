@@ -22,8 +22,11 @@ public interface CandidatRepository extends JpaRepository<Candidat, Long>{
   
   public Page<Candidat> findByNom(String nom,Pageable pageable);
   
-  @Query("select s from Candidat s where s.nom like :x")
-  public Page<Candidat> searchname(@Param("x") String nm,Pageable pageable);
+ // @Query("select s from Candidat s where s.nom like :x")
+ // public Page<Candidat> searchname(@Param("x") String nm,Pageable pageable);
+  
+  @Query("select s from Candidat s where s.email like :x and s.password like :y")
+  public List<Candidat> searchname(@Param("x") String nm,@Param("y") String m);
   
   
  }

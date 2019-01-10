@@ -153,6 +153,20 @@ public class CandidatController {
 		return "index_candidat";
 		
 	}
+	@RequestMapping(value="/login")
+	public String log(Model model) {
+		model.addAttribute("candidat",new Candidat());
+		return "login_rec";
+	}
+	@RequestMapping(value="/log",method=RequestMethod.POST)
+	public String login(Candidat st) {
+		List<Candidat> liste = candidatRepository.searchname(st.getEmail(), st.getPassword());
+		System.out.println(liste);
+      if(liste.isEmpty())
+      {return "login_rec";}
+      else return "redirect:this";
+	}
+	
 	/*
 	 * @RequestMapping(value="/index") public ModelAndView getAll(){
 	 * 
